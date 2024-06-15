@@ -6,7 +6,7 @@ var parser = express.json();
 router.get('/', function (req, res, next) {
   if (req.query.selectedDate) {
     console.log('GET tables on: ' + req.query.selectedDate);
-    res.sendStatus(200);
+    res.render('index', { title: 'Tables' })
   } else {
     res.sendStatus(400);
   }
