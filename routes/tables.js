@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var parser = express.json();
 
 /* GET reservations for the day */
 router.get('/', function (req, res, next) {
