@@ -13,11 +13,12 @@ router.get('/', function (req, res, next) {
 
 /* POST table reservation */
 router.post('/', function (req, res, next) {
-  var bookingInfo = JSON.parse(req.body);
-  if (bookingInfo.user && bookingInfo.selectedDate && bookingInfo.table) {
-    console.log('User: ' + JSON.stringify(bookingInfo.user));
-    console.log('Date: ' + bookingInfo.selectedDate);
-    console.log('Table: ' + JSON.stringify(bookingInfo.table));
+  
+  console.log('Body: ' + JSON.stringify(req.body));
+  
+  if (req.body.usrPsw && req.body.usrMail) {
+    console.log(req.body.usrPsw);
+    console.log(req.body.usrMail);
   } else {
     res.status(400);
     res.send();
