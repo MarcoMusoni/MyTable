@@ -3,15 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { firstLogin: true });
+  res.render("index");
 });
 
 /* Login procedure */
 router.post("/login", function (req, res, next) {
+  let resStatus = 200;
   let loginStatus = {
-    httpStatus: 200,
-    firstLogin: false,
-    missingData: false,
+    missingData: false
   };
 
   var body = req.body;
@@ -22,12 +21,11 @@ router.post("/login", function (req, res, next) {
   if (body.usrMail && body.usrPsw) {
     // var user = retrieveUserWithMail(body.usrMail);
   } else {
-    loginStatus.httpStatus = 400;
+    resStatus = 400;
     loginStatus.missingData = true;
   }
 
-  res.status(loginStatus.httpStatus);
-  res.render("index", loginStatus);
+  res.status(resStatus).send(loginStatus);
 });
 
 module.exports = router;
