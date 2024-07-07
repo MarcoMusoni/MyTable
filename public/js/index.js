@@ -20,7 +20,6 @@ document.getElementById('loginBtn').addEventListener('click', (event) => {
         body: JSON.stringify(user)
     })
         .then(res => {
-            console.log(res);
             if (res.status !== 200) {
                 res.json().then(body =>
                     handleFailedLogin(body)

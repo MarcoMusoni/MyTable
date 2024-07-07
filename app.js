@@ -25,38 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/tables', usersRouter);
 
-// login handler
-app.post("/login", async function (req, res, next) {
-
-  console.info(
-    new Date().toLocaleString() + " | Login attempted: " + JSON.stringify(req.body)
-  );
-
-  if (!req.body.usrMail || !req.body.usrPsw) {
-    res.status(400).json({ error: 'missing data' });
-    return;
-  }
-
-  try {
-    // check if the user exists
-    let user = null;
-
-    if (user) {
-      //check if password matches
-      const result = req.body.password === user.password;
-      if (result) {
-        res.render("tables");
-      } else {
-        res.status(401).json({ error: "password doesn't match" });
-      }
-    } else {
-      res.status(404).json({ error: "user doesn't exist" });
-    }
-  } catch (error) {
-    res.status(500).json({ error });
-  }
-});
-
 // error handler
 app.use(function (err, req, res, next) {
   console.log('>>> ' + err);
