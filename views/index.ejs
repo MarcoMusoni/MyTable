@@ -15,17 +15,34 @@
         <p class="league-spartan">Click it. Book it. Sorted.</p>
     </header>
     <main>
-        <div class="padding"></div>
-        <div class="loginSection league-spartan">
-            <label>Email</label>
-            <input type="email" name="usrMail" id="usrMail"><br>
-            <label>Password</label>
-            <input type="password" name="usrPsw" id="usrPsw"><br><br>
-            <a href="#" id="loginBtn">Login</a>
-        </div>
+        <form class="loginSection league-spartan">
+            <table>
+                <tbody>
+                    <tr>
+                        <td> <label for="usrMail">Email</label> </td>
+                        <td> <input type="email" name="usrMail" id="usrMail"> </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="usrPsw">Password</label> </td>
+                        <td> <input type="password" name="usrPsw" id="usrPsw"> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="Login" id="loginBtn">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label id="errorLbl"></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
     </main>
 
-    <script src="js/index.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 
 </html>

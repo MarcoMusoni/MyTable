@@ -1,4 +1,8 @@
-document.getElementById('loginBtn').addEventListener('click', () => {
+function handleFailedLogin(body) {
+    document.getElementById('errorLbl').innerText = body.error || 'An error occurred.';
+}
+
+document.getElementById('loginBtn').addEventListener('click', (event) => {
     var mail = document.getElementById('usrMail').value;
     var psw = document.getElementById('usrPsw').value;
 
@@ -14,7 +18,14 @@ document.getElementById('loginBtn').addEventListener('click', () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)
-    }).then(() => {
-        console.log('posted');
     })
+        .then(res => {
+            console.log(res);
+            if (res.status !== 200) {
+                res.json().then(body =>
+                    handleFailedLogin(body)
+                );
+            }
+        })
+        .catch(err => console.log(err));
 });
