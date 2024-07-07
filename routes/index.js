@@ -1,3 +1,5 @@
+const { MongoClient } = require("mongodb");
+
 var express = require("express");
 var router = express.Router();
 
@@ -7,35 +9,36 @@ router.get("/", function (req, res, next) {
 });
 
 // login handler
-router.post("/login", async function (req, res, next) {
-
+router.post("/login", function (req, res, next) {
   console.info(
-    new Date().toLocaleString() + " | Login attempted: " + JSON.stringify(req.body)
+    new Date().toLocaleString() +
+      " | Login attempted: " +
+      JSON.stringify(req.body)
   );
 
   if (!req.body.usrMail || !req.body.usrPsw) {
-    res.status(400).json({ error: 'missing data' });
+    res.status(400).json({ error: "missing data" });
     return;
   }
 
-  try {
-    // check if the user exists
-    let user = null;
-
-    if (user) {
-      //check if password matches
-      const result = req.body.password === user.password;
-      if (result) {
-        res.render("tables");
+  retrieveUser(req.body.usrMail)
+    .then((user) => {
+      if (user) {
+        //check if password matches
+        const result = req.body.usrPsw === user.password;
+        if (result) {
+          res.redirect("tables");
+        } else {
+          res.status(401).json({ error: "password doesn't match" });
+        }
       } else {
-        res.status(401).json({ error: "password doesn't match" });
+        res.status(404).json({ error: "user doesn't exist" });
       }
-    } else {
-      res.status(404).json({ error: "user doesn't exist" });
-    }
-  } catch (error) {
-    res.status(500).json({ error });
-  }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: null });
+    });
 });
 
 /**

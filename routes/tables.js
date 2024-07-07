@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET reservations for the day */
 router.get('/', function (req, res, next) {
   console.log('Tables GETTED');
-  res.status(200).send();
+  res.render("tables");
 });
 
 /* POST table reservation */
