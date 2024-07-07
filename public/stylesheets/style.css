@@ -38,6 +38,9 @@ p {
 }
 
 main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url(../img/indexBG.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -48,41 +51,31 @@ div.padding {
   height: 30%;
 }
 
-div.loginSection {
-  display: block;
-  max-width: 40%;
-  margin-left: 400px;
+.loginSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40%;
+  min-height: 200px;
   background-color: rgba(245, 245, 245, 0.5);
   border: 2px solid;
   border-radius: 10px;
-  padding-top: 40px;
-  padding-bottom: 25px;
-  text-align: left;
 }
 
 label {
+  margin: 5px;
   font-size: 25pt;
   font-weight: 400;
-  margin-left: 70px;
-  vertical-align: middle;
 }
 
 input {
+  margin: 5px;
   font-size: 16pt;
-}
-
-#usrMail {
-  margin-left: 60px;
-}
-
-#usrPsw {
-  margin-left: 7px;
 }
 
 #loginBtn {
   border: 2px solid black;
   border-radius: 5px;
-  margin-left: 235px;
   padding: 5px;
   font-size: 24pt;
 }
@@ -91,7 +84,6 @@ input {
   background-color: rgba(245, 245, 245, 0.3);
   border: 2px solid whitesmoke;
   border-radius: 5px;
-  margin-left: 235px;
   padding: 5px;
   font-size: 24pt;
 }
