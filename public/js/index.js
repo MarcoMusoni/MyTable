@@ -1,5 +1,5 @@
 function handleFailedLogin(body) {
-    console.log('>>> ' + body.error);
+    document.getElementById('errorLbl').innerText = body.error || 'An error occurred.';
 }
 
 document.getElementById('loginBtn').addEventListener('click', (event) => {
@@ -22,7 +22,6 @@ document.getElementById('loginBtn').addEventListener('click', (event) => {
         .then(res => {
             console.log(res);
             if (res.status !== 200) {
-                console.log('>>> not 200');
                 res.json().then(body =>
                     handleFailedLogin(body)
                 );

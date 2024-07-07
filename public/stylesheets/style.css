@@ -55,6 +55,7 @@ div.padding {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 20px;
   min-width: 40%;
   min-height: 200px;
   background-color: rgba(245, 245, 245, 0.5);
@@ -86,4 +87,9 @@ input {
   border-radius: 5px;
   padding: 5px;
   font-size: 24pt;
+}
+
+#errorLbl {
+  color: red;
+  font-size: 20pt;
 }
