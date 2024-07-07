@@ -8,6 +8,28 @@ var app = require('../app');
 var debug = require('debug')('mytable:server');
 var http = require('http');
 
+const { MongoClient, ServerApiVersion } = require('mongodb');
+
+/**
+ * Create MongoDb client and test connection, store uri in Express.
+ */
+
+const dbUri = 'mongodb://localhost:27017/MyTable';
+
+const dbClient = new MongoClient(dbUri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true
+  }
+});
+
+testConnection().catch(err => {
+  console.log(err);
+});
+
+app.set('dbUri', dbUri);
+
 /**
  * Get port from environment and store in Express.
  */
@@ -28,6 +50,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+console.log('Listening on: http://localhost:' + port);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -87,4 +110,18 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+}
+
+/**
+ * MongoDb connection test
+ */
+async function testConnection() {
+  try {
+    await dbClient.connect(); // connect
+    await dbClient.db().command({ ping: 1 }); // ping db
+
+    console.log('Database connected at: ' + dbUri);
+  } finally {
+    dbClient.close();
+  }
 }

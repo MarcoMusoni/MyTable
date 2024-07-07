@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+    <title>MyTable</title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="league-spartan-bold">MyTable</h1>
+        <p class="league-spartan">Click it. Book it. Sorted.</p>
+    </header>
+    <main>
+        <form class="loginSection league-spartan">
+            <table>
+                <tbody>
+                    <tr>
+                        <td> <label for="usrMail">Email</label> </td>
+                        <td> <input type="email" name="usrMail" id="usrMail"> </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="usrPsw">Password</label> </td>
+                        <td> <input type="password" name="usrPsw" id="usrPsw"> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="Login" id="loginBtn">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label id="errorLbl"></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </main>
+
+    <script src="/js/index.js"></script>
+</body>
+
 </html>

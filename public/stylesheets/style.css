@@ -1,8 +1,95 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 1366px;
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+  text-decoration: none;
+}
+
+header {
+  height: 230px;
+}
+
+.league-spartan {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.league-spartan-bold {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-size: 50pt;
+}
+
+h1 {
+  margin-top: 0;
+  padding-top: 25px;
+  font-size: 50pt;
+}
+
+p {
+  font-size: 25pt;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../img/indexBG.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 460px;
+}
+
+div.padding {
+  height: 30%;
+}
+
+.loginSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  min-width: 40%;
+  min-height: 200px;
+  background-color: rgba(245, 245, 245, 0.5);
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+label {
+  margin: 5px;
+  font-size: 25pt;
+  font-weight: 400;
+}
+
+input {
+  margin: 5px;
+  font-size: 16pt;
+}
+
+#loginBtn {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 24pt;
+}
+
+#loginBtn:hover {
+  background-color: rgba(245, 245, 245, 0.3);
+  border: 2px solid whitesmoke;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 24pt;
+}
+
+#errorLbl {
+  color: red;
+  font-size: 20pt;
 }
