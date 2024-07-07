@@ -27,7 +27,7 @@ router.post("/login", function (req, res, next) {
         //check if password matches
         const result = req.body.usrPsw === user.password;
         if (result) {
-          res.redirect("tables");
+          res.redirect("tables"); // GET /tables
         } else {
           res.status(401).json({ error: "password doesn't match" });
         }
