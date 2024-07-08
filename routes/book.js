@@ -21,6 +21,24 @@ router.get('/', function (req, res, next) {
     }
 });
 
+router.post('/', function (req, res, next) {
+    if (req.body) {
+        saveReservation(req.body.uid, req.body.date, req.body.selection)
+            .then((saved) => {
+                res.status(201).json(saved);
+                return;
+            })
+            .catch((err) => {
+                console.log(err);
+                res.sendStatus(500);
+                return;
+            });
+    } else {
+        res.sendStatus(400);
+        return;
+    }
+});
+
 const uri = "mongodb://localhost:27017/MyTable";
 
 async function retrieveReservationsFor(date) {
@@ -43,8 +61,26 @@ async function retrieveReservationsFor(date) {
         client.close();
     }
 
-    console.log(JSON.stringify(reservations));
     return reservations;
+}
+
+async function saveReservation(uid, date, selections) {
+    const client = new MongoClient(uri);
+    const book = client.db().collection('Book');
+
+    try {
+        let reservation = [];
+        for (const selection of selections) {
+            reservation.push({
+                uid: uid,
+                date: date,
+                table_name: selection
+            });
+        }
+        await book.insertMany(reservation);
+    } finally {
+        client.close();
+    }
 }
 
 module.exports = router;
