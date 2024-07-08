@@ -3,8 +3,7 @@ var router = express.Router();
 
 /* GET reservations for the day */
 router.get('/', function (req, res, next) {
-  console.log('GET TABLES');
-  res.render("tables"); // should be rendering, WTF
+  res.render("tables");
 });
 
 /* POST table reservation */
