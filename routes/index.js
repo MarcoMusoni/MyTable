@@ -12,8 +12,8 @@ router.get("/", function (req, res, next) {
 router.post("/login", function (req, res, next) {
   console.info(
     new Date().toLocaleString() +
-      " | Login attempted: " +
-      JSON.stringify(req.body)
+    " | Login attempted: " +
+    JSON.stringify(req.body)
   );
 
   if (!req.body.usrMail || !req.body.usrPsw) {
@@ -21,13 +21,13 @@ router.post("/login", function (req, res, next) {
     return;
   }
 
-  retrieveUser(req.body.usrMail)
+  retrieveUserByMail(req.body.usrMail)
     .then((user) => {
       if (user) {
         //check if password matches
         const result = req.body.usrPsw === user.password;
         if (result) {
-          res.redirect("tables"); // GET /tables
+          res.status(200).json({ uid: user._id });
         } else {
           res.status(401).json({ error: "password doesn't match" });
         }
@@ -47,11 +47,11 @@ router.post("/login", function (req, res, next) {
 
 const uri = "mongodb://localhost:27017/MyTable";
 
-async function retrieveUser(email) {
+async function retrieveUserByMail(email) {
   const client = new MongoClient(uri);
   const users = client.db().collection("Users");
 
-  const query = { mail: email };
+  const query = { email: email };
 
   try {
     return await users.findOne(query);

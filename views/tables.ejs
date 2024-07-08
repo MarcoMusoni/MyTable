@@ -1,12 +1,98 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyTable</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/tables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <p>Tables Page</p><br>
-    <a href="/">Go back</a>
+    <header>
+        <h1 class="league-spartan-bold">MyTable</h1>
+        <p class="league-spartan">Click it. Book it. Sorted.</p>
+    </header>
+    <section>
+        <table class="text-center">
+            <tbody>
+                <tr>
+                    <td class="dates league-spartan">
+                        <ul class="no-bullets">
+                            <li class="date" id="date1">
+                                <img src="img/daily-calendar.png" alt="->" />
+                                <span>
+                                    <%= dates[0] %>
+                                </span>
+                            </li>
+                            <li class="date" id="date2">
+                                <img src="img/daily-calendar.png" alt="->" />
+                                <span>
+                                    <%= dates[1] %>
+                                </span>
+                            </li>
+                            <li class="date" id="date3">
+                                <img src="img/daily-calendar.png" alt="->" />
+                                <span>
+                                    <%= dates[2] %>
+                                </span>
+                            </li>
+                            <li class="date" id="date4">
+                                <img src="img/daily-calendar.png" alt="->" />
+                                <span>
+                                    <%= dates[3] %>
+                                </span>
+                            </li>
+                            <li class="date" id="date5">
+                                <img src="img/daily-calendar.png" alt="->" />
+                                <span>
+                                    <%= dates[4] %>
+                                </span>
+                            </li>
+                        </ul>
+                    </td>
+                    <td id="display" class="league-spartan-bold">
+                        <div id="message">
+                            <p>Select a Date</p>
+                        </div>
+                        <div id="map">
+                            <div class="row">
+                                <div id="t1" class="table">
+                                    <p>1</p>
+                                </div>
+                                <div id="t2" class="table">
+                                    <p>2</p>
+                                </div>
+                                <div id="t3" class="table">
+                                    <p>3</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="t4" class="table">
+                                    <p>4</p>
+                                </div>
+                                <div id="t5" class="table">
+                                    <p>5</p>
+                                </div>
+                                <div id="t6" class="table">
+                                    <p>6</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="bookDiv">
+                            <button id="bookBtn" type="button" class="league-spartan">Book it!</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="js/tables.js"></script>
 </body>
 
 </html>

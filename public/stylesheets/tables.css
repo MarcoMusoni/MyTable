@@ -1,0 +1,108 @@
+.text-center {
+    text-align: center;
+}
+
+section {
+    background-image: url(../img/indexBG.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+ul.no-bullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+td.dates {
+    background-color: rgba(153, 153, 153, 0.5);
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 8rem;
+    height: 20rem;
+    padding: 10px;
+}
+
+li.date {
+    background-color: antiquewhite;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    min-height: 2.5rem;
+    width: 8rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+li.selected,
+li.date:hover {
+    background-color: rgba(255, 170, 12, 0.65);
+}
+
+span {
+    margin: 5px;
+}
+
+#display {
+    background-color: rgba(153, 153, 153, 0.5);
+    border-radius: 20px;
+    border: 1px solid white;
+    display: flexbox;
+    align-items: center;
+    width: 50rem;
+    height: 20rem;
+}
+
+div.row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
+
+div.table {
+    background-color: rgba(153, 153, 153, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+div.free {
+    background-color: rgb(6, 155, 6, 0.65) !important;
+}
+
+div.occupied {
+    background-color: rgb(245, 23, 23, 0.65) !important;
+}
+
+div.selected {
+    background-color: rgba(255, 170, 12, 0.65) !important;
+}
+
+#bookDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#bookBtn {
+    background-color: antiquewhite;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 18pt;
+    min-height: 2rem;
+}
+
+#bookBtn:hover {
+    background-color: rgba(255, 170, 12, 0.65);
+}

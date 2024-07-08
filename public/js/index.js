@@ -11,6 +11,8 @@ document.getElementById('loginBtn').addEventListener('click', (event) => {
         'usrPsw': psw
     }
 
+    document.getElementById('errorLbl').innerText = '';
+
     fetch('http://localhost:3000/login', {
         method: 'post',
         headers: {
@@ -20,11 +22,13 @@ document.getElementById('loginBtn').addEventListener('click', (event) => {
         body: JSON.stringify(user)
     })
         .then(res => {
-            if (res.status !== 200) {
-                res.json().then(body =>
+            res.json().then(body => {
+                if (res.status !== 200) {
                     handleFailedLogin(body)
-                );
-            }
+                } else {
+                    window.location.href = '/tables?uid=' + body.uid;
+                }
+            })
         })
         .catch(err => console.log(err));
 });
