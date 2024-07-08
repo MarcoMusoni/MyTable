@@ -10,7 +10,7 @@ a {
 }
 
 header {
-  height: 230px;
+  height: 200px;
 }
 
 .league-spartan {
@@ -44,7 +44,7 @@ main {
   background-image: url(../img/indexBG.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  height: 460px;
+  height: 350px;
 }
 
 div.padding {
