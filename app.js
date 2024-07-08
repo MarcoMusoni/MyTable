@@ -7,6 +7,7 @@ var cors = require('cors')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/tables');
+var bookRouter = require('./routes/book')
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/tables', usersRouter);
+app.use('/book', bookRouter);
 
 // error handler
 app.use(function (err, req, res, next) {

@@ -23,49 +23,64 @@
                 <tr>
                     <td class="dates league-spartan">
                         <ul class="no-bullets">
-                            <li class="date">
+                            <li class="date" id="date1">
                                 <img src="img/daily-calendar.png" alt="->" />
-                                <span>9/6/2024</span>
+                                <span>
+                                    <%= dates[0] %>
+                                </span>
                             </li>
-                            <li class="date">
+                            <li class="date" id="date2">
                                 <img src="img/daily-calendar.png" alt="->" />
-                                <span>9/6/2024</span>
+                                <span>
+                                    <%= dates[1] %>
+                                </span>
                             </li>
-                            <li class="date">
+                            <li class="date" id="date3">
                                 <img src="img/daily-calendar.png" alt="->" />
-                                <span>9/6/2024</span>
+                                <span>
+                                    <%= dates[2] %>
+                                </span>
                             </li>
-                            <li class="date">
+                            <li class="date" id="date4">
                                 <img src="img/daily-calendar.png" alt="->" />
-                                <span>9/6/2024</span>
+                                <span>
+                                    <%= dates[3] %>
+                                </span>
                             </li>
-                            <li class="date">
+                            <li class="date" id="date5">
                                 <img src="img/daily-calendar.png" alt="->" />
-                                <span>9/6/2024</span>
+                                <span>
+                                    <%= dates[4] %>
+                                </span>
                             </li>
                         </ul>
                     </td>
-                    <td id="map" class="league-spartan-bold">
-                        <div class="row">
-                            <div id="t1" class="table free">
-                                <p>1</p>
-                            </div>
-                            <div id="t2" class="table free">
-                                <p>2</p>
-                            </div>
-                            <div id="t3" class="table free">
-                                <p>3</p>
-                            </div>
+                    <td id="display" class="league-spartan-bold">
+                        <div id="message">
+                            <p>Select a Date</p>
                         </div>
-                        <div class="row">
-                            <div id="t4" class="table free">
-                                <p>4</p>
+                        <div id="map">
+                            <div class="row">
+                                <div id="t1" class="table">
+                                    <p>1</p>
+                                </div>
+                                <div id="t2" class="table">
+                                    <p>2</p>
+                                </div>
+                                <div id="t3" class="table">
+                                    <p>3</p>
+                                </div>
                             </div>
-                            <div id="t5" class="table free">
-                                <p>5</p>
-                            </div>
-                            <div id="t6" class="table free">
-                                <p>6</p>
+                            <div class="row">
+                                <div id="t4" class="table">
+                                    <p>4</p>
+                                </div>
+                                <div id="t5" class="table">
+                                    <p>5</p>
+                                </div>
+                                <div id="t6" class="table">
+                                    <p>6</p>
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -73,6 +88,8 @@
             </tbody>
         </table>
     </section>
+
+    <script src="js/tables.js"></script>
 </body>
 
 </html>

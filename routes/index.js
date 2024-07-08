@@ -21,7 +21,7 @@ router.post("/login", function (req, res, next) {
     return;
   }
 
-  retrieveUser(req.body.usrMail)
+  retrieveUserByMail(req.body.usrMail)
     .then((user) => {
       if (user) {
         //check if password matches
@@ -47,7 +47,7 @@ router.post("/login", function (req, res, next) {
 
 const uri = "mongodb://localhost:27017/MyTable";
 
-async function retrieveUser(email) {
+async function retrieveUserByMail(email) {
   const client = new MongoClient(uri);
   const users = client.db().collection("Users");
 
